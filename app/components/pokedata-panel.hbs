@@ -1,0 +1,26 @@
+<div class="search-controls">
+    <Input @type="text" @value={{this.searchQuery}} aria-label="search-box" placeholder="Search Pkmn by name or ID"/>
+    <button type="button" {{on "click" (fn this.searchPokemon this.searchQuery) }}>Go</button>
+    <button type="button" {{on "click" this.getRandomPokemonTeam}}>Generate Random Team</button>
+</div>
+<section> 
+    <h3>Results</h3>
+    {{#each this.pokemonData as |pokemon|}}
+        <div class="pokemon-card">
+            <img src={{pokemon.sprites.front_default}} alt="A frontal view of the pokemon you searched for, as you would see in-game.">
+            <h3>{{pokemon.name}}</h3>
+            <h4>Type: </h4>
+            <span>
+                {{#each pokemon.types as |type index|}}
+                    {{type.type.name}}{{#if (not-eq index (sub pokemon.types.length 1))}},{{/if}}
+                {{/each}}
+            </span>
+            <h4>Base Stats</h4>
+            <ul>
+                {{#each pokemon.stats as |stat|}}             
+                    <li>{{stat.stat.name}}: {{stat.base_stat}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/each}}
+</section>
