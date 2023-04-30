@@ -3,42 +3,46 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class PokedataPanelComponent extends Component {
-    @tracked pokemonData = [];
-    @tracked searchQuery = '';
+  @tracked pokemonData = [];
+  @tracked searchQuery = '';
 
-    generateRandomTeamIds() {
-        const numberOfKnownPokemon = 1010;
-        const randomPokemonIds = [];
-        for (let i = 0; i < 6; i++) {
-            const randomId = Math.floor(Math.random() * numberOfKnownPokemon) + 1;
-            randomPokemonIds.push(randomId);
-        }
-
-        return randomPokemonIds;
+  generateRandomTeamIds() {
+    const numberOfKnownPokemon = 1010;
+    const randomPokemonIds = [];
+    for (let i = 0; i < 6; i++) {
+      const randomId = Math.floor(Math.random() * numberOfKnownPokemon) + 1;
+      randomPokemonIds.push(randomId);
     }
 
-    @action
-    async fetchPokemon(pokemonNameOrId) {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`);
-        const data = await response.json();
-        return data;
-    }
-    @action
-    async getRandomPokemonTeam() {
-        this.pokemonData = [];
-        const pokemonTeam = [];
-        const teamIds = this.generateRandomTeamIds();
+    return randomPokemonIds;
+  }
 
-        await Promise.all(teamIds.map(async (id) => {
-            const pokemon = await this.fetchPokemon(id);
-            pokemonTeam.push(pokemon);
-        }));
-        
-        this.pokemonData = pokemonTeam;
-    }
-    @action
-    async searchPokemon() {
-        const pokemon = await this.fetchPokemon(this.searchQuery);
-        this.pokemonData = [pokemon];
-    }
+  @action
+  async fetchPokemon(pokemonNameOrId) {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`
+    );
+    const data = await response.json();
+    return data;
+  }
+  @action
+  async getRandomPokemonTeam() {
+    this.pokemonData = [];
+    const pokemonTeam = [];
+    const teamIds = this.generateRandomTeamIds();
+
+    await Promise.all(
+      teamIds.map(async (id) => {
+        const pokemon = await this.fetchPokemon(id);
+        pokemonTeam.push(pokemon);
+      })
+    );
+
+    this.pokemonData = pokemonTeam;
+  }
+  @action
+  async searchPokemon() {
+    const pokemon = await this.fetchPokemon(this.searchQuery);
+    this.pokemonData = [pokemon];
+  }
 }
