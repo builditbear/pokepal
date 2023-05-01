@@ -6,10 +6,10 @@ export default class PokedataPanelComponent extends Component {
   @tracked pokemonData = [];
   @tracked searchQuery = '';
 
-  generateRandomTeamIds() {
+  generateRandomIds(quantity) {
     const numberOfKnownPokemon = 1010;
     const randomPokemonIds = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < quantity; i++) {
       const randomId = Math.floor(Math.random() * numberOfKnownPokemon) + 1;
       randomPokemonIds.push(randomId);
     }
@@ -26,9 +26,9 @@ export default class PokedataPanelComponent extends Component {
     return data;
   }
   @action
-  async getRandomPokemonTeam() {
+  async getRandomPokemonTeam(teamSize) {
     const pokemonTeam = [];
-    const teamIds = this.generateRandomTeamIds();
+    const teamIds = this.generateRandomIds(teamSize);
 
     await Promise.all(
       teamIds.map(async (id) => {
