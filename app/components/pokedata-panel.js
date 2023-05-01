@@ -27,7 +27,6 @@ export default class PokedataPanelComponent extends Component {
   }
   @action
   async getRandomPokemonTeam() {
-    this.pokemonData = [];
     const pokemonTeam = [];
     const teamIds = this.generateRandomTeamIds();
 
@@ -42,7 +41,6 @@ export default class PokedataPanelComponent extends Component {
   }
   @action
   async searchPokemon() {
-    const pokemon = await this.fetchPokemon(this.searchQuery);
-    this.pokemonData = [pokemon];
+    this.pokemonData = [await this.fetchPokemon(this.searchQuery)];
   }
 }
