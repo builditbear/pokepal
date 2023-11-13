@@ -41,7 +41,7 @@ export default class PokedataPanelComponent extends Component {
 
     searchPokemon = task(async () => {
         this.pokemonData = [await this.fetchPokemon.perform(this.searchQuery)];
-    })
+    });
 
     // fetch API equivalents.
     // @action

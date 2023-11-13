@@ -1,31 +1,36 @@
-<div class="col-2 justify-content-center">
-    <div class="row">
-        <img src={{@pokemon.sprites.front_default}} alt="A frontal view of the pokemon you searched for, as you would see in-game.">
+<div class='col-2 justify-content-center'>
+    <div class='row'>
+        <img
+            src={{@pokemon.sprites.front_default}}
+            alt='A frontal view of the pokemon you searched for, as you would see in-game.'
+        />
     </div>
 </div>
-<div class="col-4">
+<div class='col-4'>
     <h3>{{@pokemon.name}}</h3>
-    <div class="container-fluid d-flex justify-content-left ps-0">
+    <div class='container-fluid d-flex justify-content-left ps-0'>
         <h5>Type:</h5>
-        <span class="ms-2">
+        <span class='ms-2'>
             {{#each @pokemon.types as |type index|}}
-                {{type.type.name}}{{#if (not-eq index (sub @pokemon.types.length 1))}},{{/if}}
+                {{type.type.name}}{{#if
+                    (not-eq index (sub @pokemon.types.length 1))
+                }},{{/if}}
             {{/each}}
         </span>
     </div>
     <h5>Base Stats:</h5>
-    <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="col">Attack: {{this.attack}}</div>
-            <div class="col">Special Attack: {{this.specialAttack}}</div>
+    <div class='container'>
+        <div class='row align-items-center justify-content-center'>
+            <div class='col'>Attack: {{this.attack}}</div>
+            <div class='col'>Special Attack: {{this.specialAttack}}</div>
         </div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col">Defense: {{this.defense}}</div>
-            <div class="col">Special Defense: {{this.specialDefense}}</div>
+        <div class='row align-items-center justify-content-center'>
+            <div class='col'>Defense: {{this.defense}}</div>
+            <div class='col'>Special Defense: {{this.specialDefense}}</div>
         </div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col">HP: {{this.hp}}</div>
-            <div class="col">Speed: {{this.speed}}</div>
+        <div class='row align-items-center justify-content-center'>
+            <div class='col'>HP: {{this.hp}}</div>
+            <div class='col'>Speed: {{this.speed}}</div>
         </div>
     </div>
 </div>

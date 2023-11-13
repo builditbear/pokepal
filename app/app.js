@@ -6,9 +6,9 @@ import '@glint/environment-ember-loose';
 import '@glint/environment-ember-template-imports';
 
 export default class App extends Application {
-  modulePrefix = config.modulePrefix;
-  podModulePrefix = config.podModulePrefix;
-  Resolver = Resolver;
+    modulePrefix = config.modulePrefix;
+    podModulePrefix = config.podModulePrefix;
+    Resolver = Resolver;
 }
 
 loadInitializers(App, config.modulePrefix);

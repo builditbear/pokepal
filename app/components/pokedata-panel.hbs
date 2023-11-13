@@ -1,15 +1,29 @@
-<div class="container">
-    <div class="row justify-content-center mb-3">
-        <div class="col-8">
-            <div class="input-group">
-                <Input @type="text" @value={{this.searchQuery}} class="form-control" aria-label="search-box" placeholder="Search Pkmn by name or ID"/>
-                <button type="button" class="btn btn-primary" {{on "click" (perform this.searchPokemon)}}>Go</button>
-                <button type="button" class="btn btn-secondary" {{on "click" (perform this.getRandomPokemonTeam 6)}}>Generate Random Team</button>
+<div class='container'>
+    <div class='row justify-content-center mb-3'>
+        <div class='col-8'>
+            <div class='input-group'>
+                <Input
+                    @type='text'
+                    @value={{this.searchQuery}}
+                    class='form-control'
+                    aria-label='search-box'
+                    placeholder='Search Pkmn by name or ID'
+                />
+                <button
+                    type='button'
+                    class='btn btn-primary'
+                    {{on 'click' (perform this.searchPokemon)}}
+                >Go</button>
+                <button
+                    type='button'
+                    class='btn btn-secondary'
+                    {{on 'click' (perform this.getRandomPokemonTeam 6)}}
+                >Generate Random Team</button>
             </div>
         </div>
     </div>
-    <section class="row justify-content-center">
-        <div class="row align-items-center justify-content-start">
+    <section class='row justify-content-center'>
+        <div class='row align-items-center justify-content-start'>
             {{#each this.pokemonData as |pokemon|}}
                 <PokemonCard @pokemon={{pokemon}} />
             {{/each}}
