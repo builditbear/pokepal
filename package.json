@@ -1,8 +1,8 @@
 {
-  "name": "ember-conc-demo",
+  "name": "pokeperuse",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for ember-conc-demo goes here",
+  "description": "Small description for pokeperuse goes here",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -103,6 +103,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-qunit": "^8.0.1",
     "loader.js": "^4.7.0",
+    "prettier": "3.1.0",
     "prettier-plugin-ember-template-tag": "^1.1.0",
     "qunit": "^2.20.0",
     "qunit-dom": "^2.0.0",

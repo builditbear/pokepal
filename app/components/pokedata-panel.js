@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { task, all } from 'ember-concurrency';
 export default class PokedataPanelComponent extends Component {
     @tracked pokemonData = [];

@@ -6,17 +6,11 @@
     // layout, which is not resolvable with the Node resolution algorithm, to
     // work with TypeScript.
     "baseUrl": ".",
-    "glint": {
-      "environment": [
-        "ember-loose",
-        "ember-template-imports"
-      ]
-    },
     "paths": {
-      "ember-conc-demo/tests/*": [
+      "pokeperuse/tests/*": [
         "tests/*"
       ],
-      "ember-conc-demo/*": [
+      "pokeperuse/*": [
         "app/*"
       ],
       "*": [
@@ -28,5 +22,11 @@
     "app/**/*",
     "tests/**/*",
     "types/**/*"
-  ]
+  ],
+  "glint": {
+    "environment": [
+      "ember-loose",
+      "ember-template-imports"
+    ]
+  },
 }

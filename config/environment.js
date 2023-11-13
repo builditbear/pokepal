@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'ember-conc-demo',
+    modulePrefix: 'pokeperuse',
     environment,
     rootURL: '/',
     locationType: 'history',

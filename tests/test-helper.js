@@ -1,5 +1,5 @@
-import Application from 'ember-conc-demo/app';
-import config from 'ember-conc-demo/config/environment';
+import Application from 'pokeperuse/app';
+import config from 'pokeperuse/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
